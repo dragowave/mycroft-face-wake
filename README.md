@@ -1,43 +1,29 @@
-# mycroft-face-wake
+# 人脸识别唤醒
 
-Trigger Mycroft without the use of a wake-word.
+无需唤醒，即刻沟通
 
-## Simple Demonstration
-Short demo: https://www.youtube.com/watch?v=H9P5TRo8nQs&feature=youtu.be
+## 简单的演示
+短Demo: https://www.youtube.com/watch?v=H9P5TRo8nQs&feature=youtu.be
 
-Longer explanation and demo: https://www.youtube.com/watch?v=ytKUTBfjnQI
+长Demo: https://www.youtube.com/watch?v=ytKUTBfjnQI
 
-## Description and Motivation
+## 动机和描述
 
-This is a working prototype. It offers no configuration, must be run on the same host
-as [mycroft-core](https://github.com/MycroftAI/mycroft-core), and all STT is handled
-by Google's API (via the [SpeechRecognition library](https://pypi.python.org/pypi/SpeechRecognition/)).
-It does not replace the wake-word functionality - they can both used at the same time.
+这是一个正在进行中的项目。它不提供配置，必须在同一主机上运行，处理所有STT都通过Google的API（通过[SpeechRecognition库]（https://pypi.python.org/pypi/SpeechRecognition/））。它不会取代唤醒字功能 - 它们可以同时使用。
 
-I feel that this may offer a more natural way to interact with a voice assistant. Wake words are great,
-but often when I talk to people, I just make eye-contact and begin talking. This emulates that type of
-interaction (though again, it does not replace the wake-word functionality).
+这提供了一种与语音助手更自然的交互方式。唤醒词很棒，但是，当我与人交谈时，我只是进行目光接触并开始说话。这模仿了那种类型
+交互。
 
-~~This runs quite nicely on my desktop and laptop, but a Raspberry Pi is not quite powerful enough to handle
-it effectively (in my brief test, it took roughly 4 seconds to detect a face on the Pi, where it happens
-virtually instantanesouly on a desktop/laptop). Note that there is also some extra work to get this running
-on a Pi - it will not work as-is. I may add support at a later date, however, given the performance, it
-is not a priority.~~
-
-**Update:** This can work on a pi! See below.
-
-## Usage (Tested on Ubuntu 17.10 - see below for Raspbery Pi Support)
+## Ubuntu18.04
 
 1) `git clone https://github.com/ChristopherRogers1991/mycroft-face-wake.git`
 2) `cd mycroft-face-wake && pip install -r requirements.txt && pip install .`
 3) `python main.py`
 
 
-## Raspberry Pi Support
+## 树莓派3B+
 
-Demo Video: https://youtu.be/RhQqz_Yy9Fk
-
-This assumes you are running Raspbian on a Raspberry Pi 3.
+Demo视频: https://youtu.be/RhQqz_Yy9Fk
 
 1) `sudo apt-get install python-opencv cmake`
 2) `virtualenv -p python2 --system-site-packages ~/.virtualenvs/mycroft-face-wake`
@@ -47,6 +33,4 @@ This assumes you are running Raspbian on a Raspberry Pi 3.
 6) `cd mycroft-face-wake && pip install -r requirements.txt && pip install .`
 7) `python main.py`
 
-Note that this is using the python-opencv package from the repos, which only seems to work with
-python2. If you're ambitious, you could probabaly compile it yourself, and get it to work with
-python3.
+**使用repos中的python-opencv包支持python2**
